@@ -10,9 +10,7 @@
     </style>
 </head>
 <body>
-
 <h2>Students Data</h2>
-
 <table id="studentsTable">
     <thead>
         <tr>
@@ -25,23 +23,20 @@
 </table>
 
 <script>
-fetch("https://sql-project-1-cxj3.onrender.com/students")
+fetch("/students")
     .then(res => res.json())
     .then(data => {
         const tbody = document.querySelector("#studentsTable tbody");
-
         data.forEach(student => {
-            const row = `
-                <tr>
-                    <td>${student.name}</td>
-                    <td>${student.age}</td>
-                    <td>${student.salary}</td>
-                </tr>
-            `;
+            const row = `<tr>
+                <td>${student.name}</td>
+                <td>${student.age}</td>
+                <td>${student.salary}</td>
+            </tr>`;
             tbody.innerHTML += row;
         });
-    });
+    })
+    .catch(err => console.error("Error fetching students:", err));
 </script>
-
 </body>
 </html>
