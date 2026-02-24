@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-import psycopg2
+import psycopg
 
 app = Flask(__name__)
 
@@ -17,7 +17,7 @@ def home():
 @app.route("/students")
 def get_students():
     try:
-        conn = psycopg2.connect(
+        conn = psycopg.connect(
             host= DB_HOST,
             dbname=DB_NAME,
             user=DB_USER,
