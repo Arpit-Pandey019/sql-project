@@ -1,8 +1,9 @@
-# SQL Project – Student Salary Dashboard
+# SQL Project – Internship Student Salary Dashboard
 
 [🚀 **View Live Project on Render**](https://sql-project-3.onrender.com/)
 
-This project demonstrates a **SQL-based student salary dashboard** using **PostgreSQL / pgAdmin** (locally or for learning) with a Flask backend and a simple frontend.
+This project demonstrates a **SQL-based dashboard** showing **students doing internships and their salary**.  
+It uses **PostgreSQL / pgAdmin** for data management locally (or dummy data on Render) with a Flask backend and a simple frontend table display.
 
 ---
 
@@ -24,22 +25,25 @@ Click here to view the project live:
 
 ## 📋 Features
 
-- Fetches student data from a SQL-like structure (dummy or live DB)
-- Displays students with salary above a certain threshold
-- Clean table format with name, age, and salary
-- Fully deployed on Render
-- Frontend & backend integrated with Flask API
+- Displays students doing internships with their salary  
+- Fetches student data from a SQL-like structure (dummy or live DB)  
+- Clean table format with name, age, and salary  
+- Fully deployed on Render  
+- Frontend & backend integrated via Flask API  
 
 ---
 
 ## ⚡ How It Works
 
-1. **SQL / pgAdmin** – Tables `students_2024` and `students_2025` store student data (local or on Render DB).  
-2. **Flask backend** (`app.py`) provides API `/students` to fetch data.  
-3. **Frontend** (`index.html`) fetches data via `fetch()` and displays in a table.  
+1. **SQL / pgAdmin** – Tables `students_2024` and `students_2025` store student data (local or Render DB).  
+2. **Flask backend** (`app.py`) provides API `/students` to fetch internship data.  
+3. **Frontend** (`index.html`) fetches data via `fetch()` and displays it in a table.  
 
 > Note: In this deployed version, dummy data is used to simulate SQL queries without requiring a live database.
 
 ---
+
+## 📂 Project Structure
+
 
 
