@@ -1,42 +1,23 @@
-from flask import Flask, jsonify, render_template
-import psycopg
+from flask import Flask, jsonify
 import os
 
 app = Flask(__name__)
 
-DB_HOST = "localhost"
-DB_NAME = "D4"
-DB_USER = "postgres"
-DB_PASSWORD = "23bcon1008"
-DB_PORT = "5432"
-
-def get_connection():
-    return psycopg.connect(
-        host=DB_HOST,
-        dbname=DB_NAME,
-        user=DB_USER,
-        password=DB_PASSWORD,
-        port=DB_PORT
-    )
+# Dummy data (no database)
+students_data = [
+    {"name": "Arpit", "age": 21, "salary": 45000},
+    {"name": "Rahul", "age": 22, "salary": 52000},
+    {"name": "Sneha", "age": 20, "salary": 48000}
+]
 
 @app.route("/")
 def home():
-    conn = get_connection()
-    cur = conn.cursor()
+    return "SQL Project is Live on Render!"
 
-    cur.execute("""
-        SELECT name, age, salary
-        FROM students_2025
-        WHERE salary > (SELECT AVG(salary) FROM students_2024);
-    """)
-
-    students = cur.fetchall()
-    cur.close()
-    conn.close()
-
-    return render_template("index.html", students=students)
-
+@app.route("/students")
+def get_students():
+    return jsonify(students_data)
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
